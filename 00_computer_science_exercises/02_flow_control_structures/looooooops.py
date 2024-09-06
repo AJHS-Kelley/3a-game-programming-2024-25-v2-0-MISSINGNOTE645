@@ -18,6 +18,10 @@ for each_fruit in fruits:
     # continue keyword -- Skips the current iteration and then finisher the loop.
     fruits = ["Apple", "banana", "starfruit", "cucumber"]
 for each_fruit in fruits:
-    if each_fruit == "banana"
-    break
-print(each_fruit) 
+    if each_fruit == "banana":
+        break
+    print(each_fruit) 
+
+# for loops using range(). range(x) is EXCLUSIVE, it starts at 0 and ends at x - 1 
+for i in range(10): # range 0 - 9
+    print(i)
