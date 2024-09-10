@@ -6,7 +6,7 @@ import random # import random module for us to use
 # for <-- Used when you know how many loops you'll need.
 #while <-- Used when you do not know how many loops you'll need.
 
-# foe loop is like Go Fish, you serch each card for what the player asked
+# for loop is like Go Fish, you serch each card for what the player asked
 # while loop is like musical chairs, you move around until the music stops.
 
 # EACH TRIP THROUGH THE ENTIRE LOOP IS CALLED AN iteration
@@ -55,4 +55,5 @@ while player_score < 100: # Run as long asd this is true.
     player_score += random.randint(1,100)
     print(f"After: {player_score}")
     counter += 1
-print(counter)
+print(f"counter: {counter}")
+
