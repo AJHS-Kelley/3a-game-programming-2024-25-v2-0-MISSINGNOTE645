@@ -15,12 +15,9 @@ score = 10000
 
 # Output the score and number of lives the the screen
 
-if score <= 10000
+if score <= 10000:
     print("Lose a life")
-elif score >= 10000 
+elif score < 100001:
     print("Give 1 extra life")
-elif score <= 100001
-    print("Give 1 extra life")
-if score >= 100000
-    ("Give 2 extra lives")
-
+elif score > 100000:
+    print("Give 2 extra lives")
