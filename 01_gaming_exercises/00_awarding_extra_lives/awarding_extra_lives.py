@@ -1,7 +1,7 @@
 # Awarding extra lives, Calvin young, v.0.0
 
 lives = 3
-score = 100001
+score = 100000
 name = "Calvin"
 
 
