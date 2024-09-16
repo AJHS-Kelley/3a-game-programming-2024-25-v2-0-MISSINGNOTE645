@@ -14,7 +14,7 @@ print(f"Hello {name}!  you scord {score} ponits.\n")
 # ANGLE-BRACKETS <>
 # PARENTHESES ()
 
-# Allow user to input the score AS AN INTGER
+# Allow user to input the score AS AN INTGER -- ADD THIS LINE OF CODE 
 
 # If score is 10000 or less
     # Lose a life
