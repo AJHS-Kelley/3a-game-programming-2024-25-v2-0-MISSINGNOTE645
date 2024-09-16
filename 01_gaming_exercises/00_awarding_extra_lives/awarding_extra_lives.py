@@ -38,3 +38,5 @@ elif score > 100000:
 print("lives: " + str(lives))
 print("score: " + str(score))
 
+score = input( "7\n")
+
