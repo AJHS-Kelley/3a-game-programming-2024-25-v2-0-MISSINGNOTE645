@@ -4,7 +4,7 @@
 import random
 
 #DATA STRUCTURES -- PLAYER
-player_name = "test_player"
+player_name = "test player"
 player_score = 0
 player_choice = None
 
@@ -26,7 +26,7 @@ else:
     player_name = input("please type your name and press enter.\n")
 
 # THE RULES
-print("""
+print(f"""
 welcome {player_name} the Rock, Paper, Scissors Robot
 Its Time To Play ROCK, PAPER, SCISSORS.
       
@@ -59,19 +59,80 @@ while player_score < 5 and cpu_score < 5:
     else:
         print(f"you have chosen {player_choice}.\n")
 
-    # print the current score for CPU and Player
     # let player select rock, paper, scissors
     cpu_choice = random.randint(0,2) # randomly select 0, 1 or 2.
     if cpu_choice == 0:
         cpu_choice = "rock"
     elif cpu_choice == 1:
-        cpu_choice = "scissors"
-    elif cpu_choice == 2:
         cpu_choice = "paper"
+    elif cpu_choice == 2:
+        cpu_choice = "scissors"
     else:
-        print("Some how you broke the cpu's choice:/. \n please restart program if you can even do that")
+        print("Some how you broke the cpu's choice:/. \n please restart program if you can even do that\n")
         exit()
     print(f"CPU Choice: {cpu_choice}")
+
+    if player_choice == "rock"and cpu_choice == "paper":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("The CPU won a point get better\n")
+        cpu_score += 1
+        # CPU wins
+    elif player_choice == "rock"and cpu_choice == "scissors":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("you won a point\n")
+        player_score += 1
+        # PLAYER wins
+    elif player_choice == "rock"and cpu_choice == "rock":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("You both chose the same answer its a draw\n")
+        # Draw
+    elif player_choice == "scissors"and cpu_choice == "paper":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("you won a point\n")
+        player_score += 1
+        # PLAYER wins
+    elif player_choice == "scissors"and cpu_choice == "scissors":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("You both chose the same answer its a draw\n")
+        # Draw
+    elif player_choice == "scissors"and cpu_choice == "rock":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("The CPU won a point get better\n")
+        cpu_score += 1
+        # CPU wins
+    elif player_choice == "paper"and cpu_choice == "paper":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("You both chose the same answer its a draw\n")
+        # Draw
+    elif player_choice == "paper"and cpu_choice == "scissors":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("The CPU won a point get better\n")
+        cpu_score += 1
+        # CPU wins
+    elif player_choice == "paper"and cpu_choice == "rock":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("you won a point\n")
+        player_score += 1
+        # PLAYER wins
+    else:
+        print("Sorry cant find the winner. Looks like you gotta restart.\n")
+        exit()
+
+
+print(f"Your Final Score: {player_score}CPU Final Score{cpu_score}\n")
+if player_score > cpu_score:
+    print(f"Nice jod {player_name} you won against an A.I. in the most simple game in the world when you could have been doing something with your life.\n")
+elif cpu_score > player_score:
+    print(f"Just amazing {player_name} you lost in ROCK, PAPER, SCISSORS, the most simple game in the world you just suck a life.\n")
+else:
+    print("Sorry cant find the winner. Looks like you gotta restart.\n")
+    exit()
+
+
+
+
+
+
 
     # let CPU select choice at random
     # Compare player vhoice to cpu choice
