@@ -45,8 +45,7 @@ while loop_count < loops_req:
         exit()
 
     if player_choice == "rock"and cpu_choice == "paper":
-        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
-        print("The CPU won a point get better\n")
+    
         cpu_score += 1
         # CPU wins
     elif player_choice == "rock"and cpu_choice == "scissors":
@@ -58,6 +57,7 @@ while loop_count < loops_req:
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("You both chose the same answer its a draw\n")
         # Draw
+        num_draws += 1
     elif player_choice == "scissors"and cpu_choice == "paper":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("you won a point\n")
@@ -67,6 +67,7 @@ while loop_count < loops_req:
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("You both chose the same answer its a draw\n")
         # Draw
+        num_draws += 1
     elif player_choice == "scissors"and cpu_choice == "rock":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("The CPU won a point get better\n")
@@ -76,6 +77,7 @@ while loop_count < loops_req:
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("You both chose the same answer its a draw\n")
         # Draw
+        num_draws += 1
     elif player_choice == "paper"and cpu_choice == "scissors":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("The CPU won a point get better\n")
@@ -92,7 +94,7 @@ while loop_count < loops_req:
     loop_count += 1
 
 
-print(f"Your Final Score: {player_score}CPU Final Score{cpu_score}\n")
+print(f"player Final Score: {player_score} CPU Final Score: {cpu_score}\nDraws: {num_draws}")
 if player_score > cpu_score:
     print(f"Nice jod you won against an A.I. in the most simple game in the world when you could have been doing something with your life.\n")
 elif cpu_score > player_score:
@@ -101,15 +103,12 @@ else:
     print("Sorry cant find the winner. Looks like you gotta restart.\n")
     exit()
 
-    rps_time_stop = time.time ()
-    rps_time = rps_time_stop - rps_time_start
-    print(f"Number of loops: {loop_count}\n")
-    print(f"Exucution Time {rps_time: .2f}")
+rps_time_stop = time.time ()
+rps_time = rps_time_stop - rps_time_start
+print(f"Number of loops: {loop_count}\n")
+print(f"Exucution Time {rps_time: .2f} seconds . \n")
 
-
-num
-
-
+Pl
 
     # let CPU select choice at random
     # Compare player vhoice to cpu choice
