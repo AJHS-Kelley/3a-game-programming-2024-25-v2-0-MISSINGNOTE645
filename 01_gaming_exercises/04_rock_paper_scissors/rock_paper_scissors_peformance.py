@@ -43,55 +43,90 @@ while loop_count < loops_req:
     else:
         print("Some how you broke the cpu's choice:/. \n please restart program if you can even do that\n")
         exit()
-
-    if player_choice == "rock"and cpu_choice == "paper":
+    # if player_choice == "scissors"and cpu_choice == "scissors":
+    #     print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+    #     print("You both chose the same answer its a draw\n")
+    #     # Draw
+    #     num_draws += 1
+    # elif player_choice == "rock"and cpu_choice == "rock":
+    #     print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+    #     print("You both chose the same answer its a draw\n")
+    #     # Draw
+    #     num_draws += 1
+    # elif player_choice == "paper"and cpu_choice == "paper":
+    #     print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+    #     print("You both chose the same answer its a draw\n")
+    #     # Draw
+        num_draws += 1
+    if   player_choice == "rock"and cpu_choice == "paper":
     
         cpu_score += 1
+        # cpu_score = cpu_score +1
         # CPU wins
     elif player_choice == "rock"and cpu_choice == "scissors":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("you won a point\n")
         player_score += 1
+        # player_score = player_score + 1
         # PLAYER wins
-    elif player_choice == "rock"and cpu_choice == "rock":
-        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
-        print("You both chose the same answer its a draw\n")
-        # Draw
+    # elif player_choice == "rock"and cpu_choice == "rock":
+    #     print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+    #     print("You both chose the same answer its a draw\n")
+    #     # Draw
         num_draws += 1
     elif player_choice == "scissors"and cpu_choice == "paper":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("you won a point\n")
         player_score += 1
+        # player_score = player_score + 1
+        # PLAYER wins
+    # elif player_choice == "scissors"and cpu_choice == "scissors":
+    #     print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+    #     print("You both chose the same answer its a draw\n")
+    #     # Draw
+        num_draws += 1
+    elif player_choice == "scissors"and cpu_choice == "rock":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("The CPU won a point get better\n")
+        cpu_score += 1
+        # cpu_score = cpu_score +1
+        # CPU wins
+    # elif player_choice == "paper"and cpu_choice == "paper":
+    #     print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+    #     print("You both chose the same answer its a draw\n")
+    #     # Draw
+        num_draws += 1
+    elif player_choice == "paper"and cpu_choice == "scissors":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("The CPU won a point get better\n")
+        cpu_score += 1
+        # cpu_score = cpu_score +1
+        # CPU wins
+    elif player_choice == "paper"and cpu_choice == "rock":
+        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
+        print("you won a point\n")
+        player_score += 1
+        # player_score = player_score + 1
         # PLAYER wins
     elif player_choice == "scissors"and cpu_choice == "scissors":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("You both chose the same answer its a draw\n")
         # Draw
         num_draws += 1
-    elif player_choice == "scissors"and cpu_choice == "rock":
-        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
-        print("The CPU won a point get better\n")
-        cpu_score += 1
-        # CPU wins
-    elif player_choice == "paper"and cpu_choice == "paper":
+    elif player_choice == "rock"and cpu_choice == "rock":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("You both chose the same answer its a draw\n")
         # Draw
         num_draws += 1
-    elif player_choice == "paper"and cpu_choice == "scissors":
+    elif player_choice == "paper"and cpu_choice == "paper":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
-        print("The CPU won a point get better\n")
-        cpu_score += 1
-        # CPU wins
-    elif player_choice == "paper"and cpu_choice == "rock":
-        print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
-        print("you won a point\n")
-        player_score += 1
-        # PLAYER wins
+        print("You both chose the same answer its a draw\n")
+        # Draw
     else:
         print("Sorry cant find the winner. Looks like you gotta restart.\n")
         exit()
     loop_count += 1
+    
 
 
 print(f"player Final Score: {player_score} CPU Final Score: {cpu_score}\nDraws: {num_draws}")
@@ -108,7 +143,6 @@ rps_time = rps_time_stop - rps_time_start
 print(f"Number of loops: {loop_count}\n")
 print(f"Exucution Time {rps_time: .2f} seconds . \n")
 
-Pl
 
     # let CPU select choice at random
     # Compare player vhoice to cpu choice
