@@ -124,21 +124,20 @@ def pick_winner(player_choice: str, cpu_choice: str) -> str: # playerchoice and 
     else:
         print("Sorry cant find the winner. Looks like you gotta restart.\n")
         exit()   
-# MAIN GAME LOOP
-while player_score < 5 and cpu_score < 5:
-    print(f"{player_name} you have {player_score} points. \nThe CPU has {cpu_score} points\n")
-   
 
-    # let cpu select at random
-
-   # print(f"CPU Choice: {cpu_choice}")
-
-   # compaer player choice
-
+def score (winner: str) -> int:
+    """This function uses the winner to update the score for CPU, Num. DRAWS, and player score."""
+    if winner == "Player wins":
+        score = 1
+    elif winner == "CPU wins":
+        score = 1
+    else: # This is a DRAW.
+        score = 0
+    return score
 
 # DELETE ALL OF THE OLD CODE UNDER THE SCORE FUNCTION.
 # ADD THIS NEW CODE BELOW.
-def matchwinner (playerScore: int, cpuscore: int) -> bool:
+def match_winner (playerScore: int, cpuscore: int) -> bool:
     """This function determines if a player has won the game or not by scoring 5 points."""
     if playerScore >= 5:
         print ("Congratulations! You are the winner. \n" )
@@ -151,8 +150,24 @@ def matchwinner (playerScore: int, cpuscore: int) -> bool:
 
 
 
+def playGame(player_score: int, cpu_score: int) -> None:
+    """This function will use all other functions to play Rock, Paper, Scissors. """
+    while True:
+        cpu_pick = cpu_choice()
+        player_pick = player_choice()
+        round_winner = pick_winner(player_pick, cpu_pick)
+        if round_winner == "Player wins":
+            player_score += score(round_winner)
+        if round_winner == "CPU wins":
+            cpu_score += score(round_winner)
 
+        print(f"player Score: {player_score}\n")
+        print (f"CPU Score: {cpu_score}\n")
 
+        if match_winner(player_score, cpu_score) == True:
+            break
+
+playGame(player_score, cpu_score)
 
     # let CPU select choice at random
     # Compare player vhoice to cpu choice
