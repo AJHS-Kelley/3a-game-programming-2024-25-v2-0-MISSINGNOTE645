@@ -79,24 +79,21 @@ def pick_winner(player_choice: str, cpu_choice: str) -> str: # playerchoice and 
     if player_choice == "rock"and cpu_choice == "paper":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("The CPU won a point get better\n")
-        cpu_score += 1
         return "CPU wins"
             # CPU wins
     elif player_choice == "rock"and cpu_choice == "scissors":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("you won a point\n")
-        player_score += 1
         return "Player wins"
             # PLAYER wins
     elif player_choice == "rock"and cpu_choice == "rock":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("You both chose the same answer its a draw\n")
         return "Draw"
-        # Draw
+            # Draw
     elif player_choice == "scissors"and cpu_choice == "paper":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("you won a point\n")
-        player_score += 1
         return "Player wins"
             # PLAYER wins
     elif player_choice == "scissors"and cpu_choice == "scissors":
@@ -107,7 +104,6 @@ def pick_winner(player_choice: str, cpu_choice: str) -> str: # playerchoice and 
     elif player_choice == "scissors"and cpu_choice == "rock":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("The CPU won a point get better\n")
-        cpu_score += 1
         return "CPU wins"
             # CPU wins
     elif player_choice == "paper"and cpu_choice == "paper":
@@ -118,13 +114,11 @@ def pick_winner(player_choice: str, cpu_choice: str) -> str: # playerchoice and 
     elif player_choice == "paper"and cpu_choice == "scissors":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("The CPU won a point get better\n")
-        cpu_score += 1
         return "CPU wins"
             # CPU wins
     elif player_choice == "paper"and cpu_choice == "rock":
         print(f"The CPU chose {cpu_choice} and you chose {player_choice}\n")
         print("you won a point\n")
-        player_score += 1
         return "Player wins"
             # PLAYER wins
     else:
@@ -142,16 +136,18 @@ while player_score < 5 and cpu_score < 5:
    # compaer player choice
 
 
-
-print(f"Your Final Score: {player_score}CPU Final Score{cpu_score}\n")
-if player_score > cpu_score:
-    print(f"Nice jod {player_name} you won against an A.I. in the most simple game in the world when you could have been doing something with your life.\n")
-elif cpu_score > player_score:
-    print(f"Just amazing {player_name} you lost in ROCK, PAPER, SCISSORS, the most simple game in the world you just suck a life.\n")
-else:
-    print("Sorry cant find the winner. Looks like you gotta restart.\n")
-    exit()
-
+# DELETE ALL OF THE OLD CODE UNDER THE SCORE FUNCTION.
+# ADD THIS NEW CODE BELOW.
+def matchwinner (playerScore: int, cpuscore: int) -> bool:
+    """This function determines if a player has won the game or not by scoring 5 points."""
+    if playerScore >= 5:
+        print ("Congratulations! You are the winner. \n" )
+        return True
+    elif cpu_score >= 5:
+        print ("Sadly, you have been defeated by the CPU. \n" )
+        return True
+    else: # No winner yet.
+        return False
 
 
 
