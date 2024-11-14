@@ -4,18 +4,6 @@
 import random
 import time
 
-yourHealth = 0
-yourChoice = None
-
-dragonHealth = 0
-dragonChoice = None
-
-
-hasGUN =False
-haswoodenSword = False
-hasmilk = False
-hasbottle = False
-
 def displayIntro():
 
     print('You are in a land full of dragons. In front of you,')
@@ -24,48 +12,27 @@ def displayIntro():
     print('is greedy and hungry, and will eat you on sight.')
     print()
 
-haswoodenSword = False
-damage = random.randint(1,100)
-pickUpItem = input("you see a wood sword on the ground. Do you think it will help? Type sure or nope then press enter.\n")
-if pickUpItem == "sure":
-    haswoodenSword = True
-
-if haswoodenSword:
-    damage += 17
-else:
-    damage += 4
-
-hasmilk = False
-healing = random.randint(-100,1)
-pickUpItem = input("you see milk on the ground. Do you think it will help? Type sure or nope then press enter.\n")
-if pickUpItem == "sure":
-    hasmilk = True
-
-if hasmilk:
-    healing += -500
-else:
-    damage += 4
 
 
-hasGUN = False
-damage = random.randint(1,100)
-pickUpItem = input("you see a GUN on the ground. it will help... Type sure then press enter.\n")
-if pickUpItem == "sure":
-    hasGUN = True
-
-if hasGUN:
-    damage += 1000000
-else:
-    damage += 4
-
-print(f"Hello you have chose {haswoodenSword}!\n")
-isCorrect = input ("Is that correct? Type yes or no and press enter.\n").lower()
+# ITEM SELECTION
+print("You try to go and start your quest was a text comes up 'please Grab equipment befor you leave\n")
+print("you can pick: an bottle, a dimond sword, a box of milk, a GUN, or a butterknife.\n")
+time.sleep(4)
+numItems = 0
+while numItems < 2 or 1:
+    selectedItem = int(input("Pick your item wisely, which will you use? Enter 1 for bottle, 2 for dimond sword, 3 for "))
 
 
-if isCorrect == "yes":
-    print("pick where we your going!\n")
-#else:
-    
+
+
+
+
+
+
+
+
+
+
 
 def chooseCave():
     cave = ''
@@ -91,31 +58,8 @@ def checkCave(chosenCave):
     else:
         print('Gobbles you down in one bite!')
 
-if   yourChoice == "attack" and dragonChoice == "defence":
-    
-        yourHealth -= 1
-        dragonHealth -= 4
-       
-elif yourChoice == "attack"and dragonChoice == "blocked":
-        print(f"The Dragon chose {dragonChoice} and you chose {yourChoice}\n")
-        print("The dragon blocked\n")
-        yourHealth -= 1
-        dragonHealth -= 4
-elif yourChoice == "attack"and dragonChoice == "attack":
-        print(f"The Dragon chose {dragonChoice} and you chose {yourChoice}\n")
-        print("you clashed and both took massive damage\n")
-        yourHealth -= 25
-        dragonHealth -= 17
-elif yourChoice == "blocked"and dragonChoice == "attack":
-        print(f"The Dragon chose {dragonChoice} and you chose {yourChoice}\n")
-        print("you blocked but took damage\n")
-        yourHealth -= 8
-        dragonHealth -= 8
-elif yourChoice == "blocked"and dragonChoice == "blocked":
-        print(f"The Dragon chose {dragonChoice} and you chose {yourChoice}\n")
-        print("you both blocked what did you think would happen?\n")
-        yourHealth -= 0
-        dragonHealth -= 0
+
+
 playAgain = 'yes'
 
 while playAgain == 'yes' or playAgain == 'y':
@@ -124,19 +68,6 @@ while playAgain == 'yes' or playAgain == 'y':
     checkCave(caveNumber)
     print('Do you want to play again? (yes or no)')
     playAgain = input()
-
-
-haswoodenSword = False
-damage = random.randint(1,100)
-pickUpItem = input("you see a wood sword on the ground. Do you think it will help? Type sure or nope then press enter.")
-if pickUpItem == "sure":
-    haswoodenSword = True
-
-if haswoodenSword:
-    damage += 17
-else:
-    damage += 4
-
 
 
 

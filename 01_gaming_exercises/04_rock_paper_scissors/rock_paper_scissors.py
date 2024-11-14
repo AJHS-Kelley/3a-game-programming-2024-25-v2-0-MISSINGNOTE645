@@ -13,7 +13,7 @@ cpu_score = 0
 cpu_choice = None
 
 # PLAYER NAME INPUT
-player_name = input("Please type yourn name here and press enter.\n")
+player_name = input("Please type your name here and press enter.\n")
 print(f"Hello {player_name}!\n")
 isCorrect = input ("Is that correct? Type yes or no and press enter.\n").lower()
 
