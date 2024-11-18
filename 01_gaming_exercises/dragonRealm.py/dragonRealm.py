@@ -20,7 +20,7 @@ logfileName = "dragonRealmLog" + str(time.time()) + ".txt"
 # Example: dragonRealmLog1132AM.txt
 
 # Step 2 -- Create / Open the file to save the data.
-saveData = open(logfileName, "x")
+saveData = open(logfileName, "a")
 #File MODES
 # "x" CREATE FILE, IF FILE EXISTS, EXIT WITH ERROR MESSAGE.
 # "w" CREATE FILE, IF FILE EXISts, ERASE AND OVERWRITE FILE CONTENTS.
@@ -36,6 +36,10 @@ hasmilk = False
 hasGUN = False
 hasbottle = False
 hasbutterKnife = False
+# CAVE DATA
+darkcave = False
+
+
 
 # ITEM SELECTION
 print("You try to go and start your quest was a text comes up 'please Grab equipment befor you leave\n")
@@ -59,58 +63,58 @@ while numItems < 2 or 1:
         numItems += 1
     
 print(" Well it seems you have picked your items. For some reason you decided to pick:\n")
+if hasbottle:
+    print("a bottle.")
+    saveData.write ("The player selected a bottle. \n")
+if haswoodenSword:
+    print("a woodenSword.")
+    saveData.write("The player selected a woodenSword. \n")
+if hasmilk:
+    print("a carten of milk.")
+    saveData.write("The player selected carten of milk. \n")
+if hasGUN:
+    print("a GUN.")
+    saveData.write("The player selected a GUN. \n")
+if hasbutterKnife:
+    print("a hasbutterKnife.")
+    saveData.write("The player selected a hasbutterKnife. \n")
+time.sleep(3)
+
+
+
+
+chosenCave = caveChosen()
+if chosenCave == "1":
+    alive = darkcave(hasbottle)
 
 
 
 
 
 
+#def chooseCave():
+#    cave = ''
+#    while cave != '1' and cave != '2':
+#       print('Which cave will you go into? (1 or 2)')
+#       cave = input()
+#    return cave
 
+#def checkCave(chosenCave):
+ #   print('You approach the cave...')
+ #   time.sleep(2)
+ #   print('It is dark and spooky...')
+ #   time.sleep(2)
+#    print('A large dragon jumps out in front of you! He opens his jaws and...')
+ #   print()
+ #   time.sleep(2)
 
+#    friendlyCave = random.randint(1, 2)
 
+ #   if chosenCave == str(friendlyCave):
+ #       print('Gives you his treasure!')
 
-
-
-
-print(f"Hello you have chose {haswoodenSword}!\n")
-isCorrect = input ("Is that correct? Type yes or no and press enter.\n").lower()
-
-print(f"Hello you have chose {hasmilk}!\n")
-isCorrect = input ("Is that correct? Type yes or no and press enter.\n").lower()
-
-print(f"Hello you have chose {hasGUN}!\n")
-isCorrect = input ("Is that correct? Type yes or no and press enter.\n").lower()
-
-print(f"Hello you have chose {hasbottle}!\n")
-isCorrect = input ("Is that correct? Type yes or no and press enter.\n").lower()
-
-if isCorrect == "yes":
-    print("pick where we your going!\n")
-
-
-def chooseCave():
-    cave = ''
-    while cave != '1' and cave != '2':
-        print('Which cave will you go into? (1 or 2)')
-        cave = input()
-    return cave
-
-def checkCave(chosenCave):
-    print('You approach the cave...')
-    time.sleep(2)
-    print('It is dark and spooky...')
-    time.sleep(2)
-    print('A large dragon jumps out in front of you! He opens his jaws and...')
-    print()
-    time.sleep(2)
-
-    friendlyCave = random.randint(1, 2)
-
-    if chosenCave == str(friendlyCave):
-        print('Gives you his treasure!')
-
-    else:
-        print('Gobbles you down in one bite!')
+ #   else:
+ #       print('Gobbles you down in one bite!')
 
 
 
@@ -125,5 +129,6 @@ while playAgain == 'yes' or playAgain == 'y':
 
 
 # CLOSE FILE
+saveData.write("END OF GAME LOG\n ")
 saveData.close()
 
