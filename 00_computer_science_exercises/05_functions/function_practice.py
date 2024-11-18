@@ -40,6 +40,7 @@ def is_even(argument1: int) -> bool: # Requires one ARGUMENT (argument1) and RET
     else:
         return False
     
+    
 print(is_even(argument1))
 
 # Function with Multiple Arguments
@@ -50,7 +51,6 @@ def can_ride_roller_coaster(age: int, height: int) -> bool:
     else:
         print("you cannot ride")
         return False
-
 can_ride_roller_coaster(4,76) # Arguments must be passed in the same order in the same as the funcion signature indicates.
 
 
