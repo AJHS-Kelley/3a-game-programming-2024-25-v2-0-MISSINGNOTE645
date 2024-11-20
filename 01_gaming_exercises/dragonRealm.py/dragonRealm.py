@@ -87,7 +87,6 @@ while numItems < 2:
         else:
             print("You already picked a Butterknife. For the love of god Choose something else:/.\n")
     else:
-    
         print(" Well it seems you have picked your items. For some reason you decided to pick:\n")
 
         if hasbottle:
