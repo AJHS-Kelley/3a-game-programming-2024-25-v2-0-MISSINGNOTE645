@@ -37,52 +37,89 @@ hasGUN = False
 hasbottle = False
 hasbutterKnife = False
 # CAVE DATA
-darkcave = False
+caveChosen = darkcave = False
+pathChosen = 0
+forest = False
+hole = False
+darkCave = False
 
 
 
 # ITEM SELECTION
 print("You try to go and start your quest was a text comes up 'please Grab equipment befor you leave\n")
 print("you can pick: an bottle, a wood sword, a box of milk, a GUN, or a butterknife.\n")
-time.sleep(4)
+time.sleep(2)
 numItems = 0
-while numItems < 2 or 1:
-    selectedItem = int(input("Pick your item wisely, which will you use? Enter 1 for bottle, 2 for wooden sword, 3 for Milk 4 for GUN 5 for Butterknife"))
-    if selectedItem == 1:
-        hasbottle = True
-    elif selectedItem == 2:
-        haswoodenSword = True
-    elif selectedItem == 3:
-        hasmilk = True
-    elif selectedItem == 4:
-        hasGUN = True
-    elif selectedItem == 5:
-        hasbutterKnife = True
+while numItems < 2:
+    if selectedItem == "1":
+        if not hasBottle:
+            hasBottle = True
+            numItems += 1
+            print("why did pick a Bottle.\n")
+        else:
+            print("You already picked a Bottle. For the love of god choose something else:/.\n")
+    elif selectedItem == "2":
+        if not hasWoodenSword:
+            hasWoodenSword = True
+            numItems += 1
+            print("why did pick a Wooden Sword.\n")
+        else:
+            print("You already picked a Wooden Sword. For the love of god choose something else:/.\n")
+    elif selectedItem == "3":
+        if not hasMilk:
+            hasMilk = True
+            numItems += 1
+            print("why did pick a Box of Milk.\n")
+        else:
+            print("Nice you chose Milk. Too much mink buddy.\n")
+    elif selectedItem == "4":
+        if not hasGUN:
+            hasGUN = True
+            numItems += 1
+            print("Oh.... picked a GUN.\n")
+        else:
+            print("Uh you already picked a GUN bud.... Please choose something else.\n")
+    elif selectedItem == "5":
+        if not hasButterKnife:
+            hasButterKnife = True
+            numItems += 1
+            print("why did pick a Butterknife.\n")
+        else:
+            print("You already picked a Butterknife. For the love of god Choose something else:/.\n")
     else:
-        print("Um Friend, are you ok? Its simple pick an bottle, a wood sword, a box of milk, a GUN, or a butterknife. Just do it right:/.")
-        numItems += 1
     
-print(" Well it seems you have picked your items. For some reason you decided to pick:\n")
-if hasbottle:
-    print("a bottle.")
-    saveData.write ("The player selected a bottle. \n")
-if haswoodenSword:
-    print("a woodenSword.")
-    saveData.write("The player selected a woodenSword. \n")
-if hasmilk:
-    print("a carten of milk.")
-    saveData.write("The player selected carten of milk. \n")
-if hasGUN:
-    print("a GUN.")
-    saveData.write("The player selected a GUN. \n")
-if hasbutterKnife:
-    print("a hasbutterKnife.")
-    saveData.write("The player selected a hasbutterKnife. \n")
-time.sleep(3)
+        print(" Well it seems you have picked your items. For some reason you decided to pick:\n")
+
+        if hasbottle:
+            print("a bottle.")
+            saveData.write ("The player selected a bottle. \n")
+        if haswoodenSword:
+            print("a woodenSword.")
+            saveData.write("The player selected a woodenSword. \n")
+        if hasmilk:
+            print("a carten of milk.")
+            saveData.write("The player selected carten of milk. \n")
+        if hasGUN:
+            print("a GUN.")
+            saveData.write("The player selected a GUN. \n")
+        if hasbutterKnife:
+            print("a hasbutterKnife.")
+            saveData.write("The player selected a hasbutterKnife. \n")
+        time.sleep(3)
+
+        print("Now you that you finally done with that chose which way to go.")
 
 
-
-
+while pathChosen == 1:
+    caveChosen = int(input("Chose your path wisely, which way will you go? Enter 1 for Left, 2 for Right, 3 for Forward."))
+    if caveChosen == 1:
+        forest = True
+    elif caveChosen == 2:
+        hole = True
+    elif caveChosen == 3:
+        darkCave = True
+    else:
+        print("Are you just dumb... PICK ONE, TWO OR THREE YOU DUNB FU-.")
 chosenCave = caveChosen()
 if chosenCave == "1":
     alive = darkcave(hasbottle)
