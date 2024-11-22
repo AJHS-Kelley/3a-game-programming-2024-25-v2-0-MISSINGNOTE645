@@ -1,127 +1,169 @@
 # Dragon Realm, <STUDENT_NAME>, v0.0
 # Based on https://inventwithpython.com/chapter6.html by Al Sweigart
 # So far so good.  
-import random
 import time
 import datetime
 
+# Initialize the game
 def displayIntro():
-
     print('You are in a land full of dragons. In front of you,')
     print('you see two caves. In one cave, the dragon is friendly')
     print('and will share his treasure with you. The other dragon')
     print('is greedy and hungry, and will eat you on sight.')
     print()
 
-# SAVEING DATA TO A FILE
-# STEP 1 -- Create the file name to use.
+# Create the log file
 logfileName = "dragonRealmLog" + str(time.time()) + ".txt"
-# LogFileName = "dragonRealmLog.txt"
-# Example: dragonRealmLog1132AM.txt
-
-# Step 2 -- Create / Open the file to save the data.
 saveData = open(logfileName, "a")
-#File MODES
-# "x" CREATE FILE, IF FILE EXISTS, EXIT WITH ERROR MESSAGE.
-# "w" CREATE FILE, IF FILE EXISts, ERASE AND OVERWRITE FILE CONTENTS.
-# "A" CREATE FILE, IF FILE EXISTS, APPEND DATA TO THE FILE.
+saveData.write("Game started: " + str(datetime.datetime.now()) + "\n")
 
-saveData.write("game started" + " " + str(datetime.datetime.now())+ "\n")
-
-# ITEM DATA
-selectedItem = 0
+# Initialize variables
 numItems = 0
-haswoodenSword = False
-hasmilk = False
-hasGUN = False
-hasbottle = False
-hasbutterKnife = False
-# CAVE DATA
-caveChosen = darkcave = False
+hasWoodenSword = False
+hasMilk = False
+hasGun = False
+hasBottle = False
+hasButterKnife = False
 pathChosen = 0
-forest = False
-hole = False
-darkCave = False
-
-
 
 # ITEM SELECTION
-print("You try to go and start your quest was a text comes up 'please Grab equipment befor you leave\n")
-print("you can pick: an bottle, a wood sword, a box of milk, a GUN, or a butterknife.\n")
+print("You try to go and start your quest when a text comes up: 'Please grab equipment before you leave.'\n")
+print("You can pick: a bottle, a wooden sword, a box of milk, a GUN, or a butter knife.\n")
 time.sleep(2)
-numItems = 0
+
 while numItems < 2:
-    if selectedItem == "1":
-        if not hasBottle:
-            hasBottle = True
-            numItems += 1
-            print("why did pick a Bottle.\n")
-        else:
-            print("You already picked a Bottle. For the love of god choose something else:/.\n")
-    elif selectedItem == "2":
-        if not hasWoodenSword:
-            hasWoodenSword = True
-            numItems += 1
-            print("why did pick a Wooden Sword.\n")
-        else:
-            print("You already picked a Wooden Sword. For the love of god choose something else:/.\n")
-    elif selectedItem == "3":
-        if not hasMilk:
-            hasMilk = True
-            numItems += 1
-            print("why did pick a Box of Milk.\n")
-        else:
-            print("Nice you chose Milk. Too much mink buddy.\n")
-    elif selectedItem == "4":
-        if not hasGUN:
-            hasGUN = True
-            numItems += 1
-            print("Oh.... picked a GUN.\n")
-        else:
-            print("Uh you already picked a GUN bud.... Please choose something else.\n")
-    elif selectedItem == "5":
-        if not hasButterKnife:
-            hasButterKnife = True
-            numItems += 1
-            print("why did pick a Butterknife.\n")
-        else:
-            print("You already picked a Butterknife. For the love of god Choose something else:/.\n")
+    selectedItem = input("Choose an item by entering its number (1: Bottle, 2: Wooden Sword, 3: Milk, 4: GUN, 5: Butter Knife): ")
+    if selectedItem == "1" and not hasBottle:
+        hasBottle = True
+        numItems += 1
+        print("why did pick a Bottle.\n")
+    elif selectedItem == "2" and not hasWoodenSword:
+        hasWoodenSword = True
+        numItems += 1
+        print("why did pick a Wooden Sword.\n")
+    elif selectedItem == "3" and not hasMilk:
+        hasMilk = True
+        numItems += 1
+        print("why did pick a Box of Milk.\n")
+    elif selectedItem == "4" and not hasGun:
+        hasGun = True
+        numItems += 1
+        print("Oh.... picked a GUN.\n")
+    elif selectedItem == "5" and not hasButterKnife:
+        hasButterKnife = True
+        numItems += 1
+        print("why did pick a Butterknife.\n")
     else:
-        print(" Well it seems you have picked your items. For some reason you decided to pick:\n")
+        print("Invalid or already selected item. Please choose something else.\n")
 
-        if hasbottle:
-            print("a bottle.")
-            saveData.write ("The player selected a bottle. \n")
-        if haswoodenSword:
-            print("a woodenSword.")
-            saveData.write("The player selected a woodenSword. \n")
-        if hasmilk:
-            print("a carten of milk.")
-            saveData.write("The player selected carten of milk. \n")
-        if hasGUN:
-            print("a GUN.")
-            saveData.write("The player selected a GUN. \n")
-        if hasbutterKnife:
-            print("a hasbutterKnife.")
-            saveData.write("The player selected a hasbutterKnife. \n")
-        time.sleep(3)
+# Display and log selected items
+print("\nWell it seems you have picked your items. For some reason you decided to pick:\n")
+itemsChosen = []
+if hasBottle:
+    print("a bottle.")
+    saveData.write("The player selected a bottle.\n")
+    itemsChosen.append("Bottle")
+if hasWoodenSword:
+    print("a wooden sword.")
+    saveData.write("The player selected a wooden sword.\n")
+    itemsChosen.append("Wooden Sword")
+if hasMilk:
+    print("a carton of milk.")
+    saveData.write("The player selected a carton of milk.\n")
+    itemsChosen.append("Milk")
+if hasGun:
+    print("a GUN.")
+    saveData.write("The player selected a GUN.\n")
+    itemsChosen.append("Gun")
+if hasButterKnife:
+    print("a butter knife.")
+    saveData.write("The player selected a butter knife.\n")
+    itemsChosen.append("Butter Knife")
 
-        print("Now you that you finally done with that chose which way to go.")
+time.sleep(3)
+print("Now that you are finally done with that, choose which way to go.")
 
+# SCENARIOS BASED ON ITEMS AND PATH CHOSEN
+def forestScenario(items):
+    print("\nThe forest is dense and dark, with shadows stretching long under the canopy of towering trees.")
+    if "Bottle" in items and "Wooden Sword" in items:
+        print("""
+        A wolf lunges from the bushes. You fight it off with the sword and later gather water in the bottle to clean your wounds. 
+        """)
+    elif "Milk" in items and "Gun" in items:
+        print("""
+        A bandit tries to ambush you. You fire a warning shot, forcing them to flee. 
+        You drink milk to regain your energy and press forward.
+        """)
+    elif "Butter Knife" in items and "Bottle" in items:
+        print("""
+        A snake slithers near your path. You smash it with the bottle and use the knife to skin it for food. 
+        """)
+    # Add combinations for remaining items if chosen
 
-while pathChosen == 1:
-    caveChosen = int(input("Chose your path wisely, which way will you go? Enter 1 for Left, 2 for Right, 3 for Forward."))
-    if caveChosen == 1:
-        forest = True
-    elif caveChosen == 2:
-        hole = True
-    elif caveChosen == 3:
-        darkCave = True
+def holeScenario(items):
+    print("\nYou fall into a deep hole. The air is damp, and the walls are slick.")
+    if "Bottle" in items and "Milk" in items:
+        print("""
+        You find an underground stream and refill your bottle. The milk gives you the strength to climb out of the hole.
+        """)
+    elif "Gun" in items and "Butter Knife" in items:
+        print("""
+        A hostile creature attacks you. You fend it off with the gun and carve a torch from nearby debris using the knife. 
+        """)
+    # Add combinations for remaining items if chosen
+
+def darkCaveScenario(items):
+    print("\nThe cave is pitch black, with the distant sound of something breathing.")
+    if "Gun" in items and "Bottle" in items:
+        print("""
+        A dragon blocks your path. You distract it with the bottle and escape while it's momentarily confused.
+        """)
+    elif "Wooden Sword" in items and "Butter Knife" in items:
+        print("""
+        Small creatures swarm toward you. You fend them off with the sword and use the knife to carve through a barricade.
+        """)
+    # Add combinations for remaining items if chosen
+
+# PATH SELECTION
+while pathChosen == 0:
+    caveChosen = input("Choose your path wisely, which way will you go? Enter 1 for Forest, 2 for Hole, 3 for Dark Cave: ")
+
+    if caveChosen == "1":
+        print("\nYou venture into the forest.")
+        saveData.write("Player chose the forest path.\n")
+        forestScenario(itemsChosen)
+        pathChosen = 1
+    elif caveChosen == "2":
+        print("\nYou fall into a deep hole.")
+        saveData.write("Player chose the hole path.\n")
+        holeScenario(itemsChosen)
+        pathChosen = 2
+    elif caveChosen == "3":
+        print("\nYou enter the dark cave.")
+        saveData.write("Player chose the dark cave path.\n")
+        darkCaveScenario(itemsChosen)
+        pathChosen = 3
     else:
-        print("Are you just dumb... PICK ONE, TWO OR THREE YOU DUNB FU-.")
-chosenCave = caveChosen()
-if chosenCave == "1":
-    alive = darkcave(hasbottle)
+        print("Are you just dumb... PICK ONE, TWO OR THREE YOU DUMB FU-.")
+
+
+playAgain = 'yes'
+
+while playAgain == 'yes' or playAgain == 'y':
+    displayIntro()
+    caveNumber = chooseCave()
+    checkCave(caveNumber)
+    print('Do you want to play again? (yes or no)')
+    playAgain = input()
+
+
+# End of game
+saveData.write("Game ended: " + str(datetime.datetime.now()) + "\n")
+saveData.close()
+print("\nGame data has been logged. Thank you for playing!")
+
+
 
 
 
@@ -154,17 +196,4 @@ if chosenCave == "1":
 
 
 
-playAgain = 'yes'
-
-while playAgain == 'yes' or playAgain == 'y':
-    displayIntro()
-    caveNumber = chooseCave()
-    checkCave(caveNumber)
-    print('Do you want to play again? (yes or no)')
-    playAgain = input()
-
-
-# CLOSE FILE
-saveData.write("END OF GAME LOG\n ")
-saveData.close()
 
