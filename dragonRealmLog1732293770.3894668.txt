@@ -1,0 +1,4 @@
+Game started: 2024-11-22 11:42:50.390003
+The player selected a bottle.
+The player selected a carton of milk.
+Player chose the dark cave path.
