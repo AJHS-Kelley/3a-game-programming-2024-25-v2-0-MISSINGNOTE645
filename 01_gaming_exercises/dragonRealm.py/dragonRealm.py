@@ -33,6 +33,7 @@ pathChosen = 0
 def itemSelection():
     global numItems, hasWoodenSword, hasMilk, hasGun, hasBottle, hasButterKnife
     print("You try to go and start your quest when a text comes up: 'Please grab equipment before you leave.'\n")
+    time.sleep(2)
     print("You can pick: a bottle, a wooden sword, a box of milk, a GUN, or a butter knife.\n")
     time.sleep(2)
 
@@ -66,23 +67,23 @@ def itemSelection():
     itemsChosen = []
     if hasBottle:
         print("a bottle.")
-        saveData.write("The player selected a bottle.\n")
+        saveData.write("You have selected a bottle.\n")
         itemsChosen.append("Bottle")
     if hasWoodenSword:
         print("a wooden sword.")
-        saveData.write("The player selected a wooden sword.\n")
+        saveData.write("You have selected a wooden sword.\n")
         itemsChosen.append("Wooden Sword")
     if hasMilk:
         print("a carton of milk.")
-        saveData.write("The player selected a carton of milk.\n")
+        saveData.write("You have selected a carton of milk.\n")
         itemsChosen.append("Milk")
     if hasGun:
         print("a GUN.")
-        saveData.write("The player selected a GUN.\n")
+        saveData.write("You have selected a GUN.\n")
         itemsChosen.append("Gun")
     if hasButterKnife:
         print("a butter knife.")
-        saveData.write("The player selected a butter knife.\n")
+        saveData.write("You have selected a butter knife.\n")
         itemsChosen.append("Butter Knife")
 
     return itemsChosen

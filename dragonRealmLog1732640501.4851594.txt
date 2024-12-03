@@ -1,0 +1,3 @@
+Game started: 2024-11-26 12:01:41.485159
+You have selected a bottle.
+You have selected a wooden sword.

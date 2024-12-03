@@ -1,0 +1,3 @@
+Game started: 2024-11-26 12:00:08.426305
+You have selected a wooden sword.
+You have selected a GUN.
