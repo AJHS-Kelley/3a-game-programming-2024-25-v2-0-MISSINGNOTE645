@@ -16,7 +16,7 @@ def displayIntro():
     print()
 
 # Create the log file
-logfileName = "dragonRealmLog" + str(time.time()) + ".txt"
+logfileName = "dragonRealmLog.txt"
 saveData = open(logfileName, "a")
 saveData.write("Game started: " + str(datetime.datetime.now()) + "\n")
 
